@@ -35,10 +35,6 @@ import { data } from "../stores/spacerockData";
 import { Loader } from "./Loader";
 import "@/app/globals.css";
 
-/**
- * Solar System
- */
-
 const SolarSystem = () => {
   const setSolarSystemRef = useStore((state) => state.setSolarSystemRef);
   const { audioMixer, experienceStarted, supportsOgg } = useStore();
@@ -56,12 +52,10 @@ const SolarSystem = () => {
   const spacerockInstsRef = useRef();
   const cloudsRef = useRef();
 
-  // Assign a ref to each planet
   const assignPlanetRef = (planet) => (ref) => {
     planetsRef.current[planet] = ref;
   };
 
-  // Grid config
   const { gridSize, ...gridConfig } = useControls(
     "Grid",
     {
@@ -83,7 +77,6 @@ const SolarSystem = () => {
     c
   );
 
-  // Given a planet, return a position on grid
   const getPosition = (planet) => {
     const g1 = gridConfig.cellSize;
     const start = 0;
@@ -313,10 +306,6 @@ const SolarSystem = () => {
     c
   );
 
-  /**
-   * AUDIO stuff... what a mess 🙈
-   */
-
   const { camera, scene } = useThree();
   const headphonesCameraRef = useRef(new THREE.PerspectiveCamera());
 
@@ -447,31 +436,33 @@ const SolarSystem = () => {
 
             {planets.map((planet) => {
               return (
-                <Planet
-                  args={[1, 64, 64]}
-                  prefix={planet}
-                  config={getPlanetConfig(planet, systemData)}
-                  ref={assignPlanetRef(planet)}
-                  key={planet}
-                  position={getPosition(planet)}
-                  scale={[
-                    systemData[planet + "Scale"] * systemData.genScaleMult,
-                    systemData[planet + "Scale"] * systemData.genScaleMult,
-                    systemData[planet + "Scale"] * systemData.genScaleMult,
-                  ]}
-                >
-                  {planet === "sat" && (
-                    <PlanetRings
-                      ref={saturnRingsRef}
-                      rotation={[-Math.PI * 0.5, 0, 0]}
-                      position={[0, 0.01, 0]}
-                      scale={[4, 4, 4]}
-                      uBaseColor={systemData.satRingColor}
-                      uBloomIntensity={systemData.satRingBloomIntensity}
-                      uRadiusInner={0.3}
-                    />
-                  )}
-                </Planet>
+                <mesh key={planet} onClick={() => console.log("hi " + planet)}>
+                  <Planet
+                    args={[1, 64, 64]}
+                    prefix={planet}
+                    config={getPlanetConfig(planet, systemData)}
+                    ref={assignPlanetRef(planet)}
+                    key={planet}
+                    position={getPosition(planet)}
+                    scale={[
+                      systemData[planet + "Scale"] * systemData.genScaleMult,
+                      systemData[planet + "Scale"] * systemData.genScaleMult,
+                      systemData[planet + "Scale"] * systemData.genScaleMult,
+                    ]}
+                  >
+                    {planet === "sat" && (
+                      <PlanetRings
+                        ref={saturnRingsRef}
+                        rotation={[-Math.PI * 0.5, 0, 0]}
+                        position={[0, 0.01, 0]}
+                        scale={[4, 4, 4]}
+                        uBaseColor={systemData.satRingColor}
+                        uBloomIntensity={systemData.satRingBloomIntensity}
+                        uRadiusInner={0.3}
+                      />
+                    )}
+                  </Planet>
+                </mesh>
               );
             })}
 
@@ -924,10 +915,6 @@ const Views = () => {
     }
   }, [preset]);
 };
-
-/**
- * Effects
- */
 
 const Effects = () => {
   const postConfig = useControls(

@@ -10,7 +10,6 @@ const fragmentShader = `
 
 let _uParam;
 
-// Effect implementation
 class MyCustomEffectImpl extends Effect {
   constructor({ param = 0.1 } = {}) {
     super("MyCustomEffect", fragmentShader, {
