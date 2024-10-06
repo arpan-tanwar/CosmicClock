@@ -91,7 +91,7 @@ export default function UI(props) {
         </div>
       </div>
       {!experienceStarted && (
-        <div className="pointer-events-auto absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col text-center">
+        <div className="absolute pointer-events-auto absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col text-center">
           <button
             onClick={() => startExperience()}
             className="flex items-center justify-center px-8 py-2 mb-px rounded-sm bg-almost-black/80 text-cloud-pink text-center"
@@ -109,6 +109,7 @@ export default function UI(props) {
           </button>
         </div>
       )}
+      <div></div>
       <button
         className="absolute bottom-[26px] right-[26px]"
         onClick={handleMuteUnmute}

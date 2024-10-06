@@ -1083,7 +1083,7 @@ const Scene = () => {
 
 const page = () => {
   return (
-    <div>
+    <div className="h-screen w-screen">
       <Leva hidden collapsed oneLineLabels />
       <Canvas
         camera={{ fov: 35, position: [0, 3, 11] }}
