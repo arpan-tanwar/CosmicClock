@@ -1,0 +1,15 @@
+html,
+body,
+#root {
+  @apply w-full h-full select-none overflow-hidden;
+  background-color: #130c18;
+  -webkit-touch-callout: none;
+}
+
+#root {
+  overflow: auto;
+}
+
+body {
+  @apply fixed font-mono overflow-hidden overscroll-y-none antialiased;
+}
