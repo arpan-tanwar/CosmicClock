@@ -51,7 +51,7 @@ const useStore = create((set) => ({
   setMuted: (muted) => set({ muted }),
   toggleMuted: () => set((state) => ({ muted: !state.muted })),
   muteAll: () =>
-    set((state) => ({
+    set(() => ({
       audioMixer: {
         mer: 0,
         ven: 0,

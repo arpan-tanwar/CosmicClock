@@ -20,7 +20,7 @@ class MyCustomEffectImpl extends Effect {
     _uParam = param;
   }
 
-  update(renderer, inputBuffer, deltaTime) {
+  update() {
     this.uniforms.get("param").value = _uParam;
   }
 }

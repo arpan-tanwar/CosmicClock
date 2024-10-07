@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export default forwardRef((props, ref) => {

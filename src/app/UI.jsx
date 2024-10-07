@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import useStore from "./stores/useStore";
-import { EyeIcon, PlanetIcon, SpeakerIcon, TapeIcon } from "./Icons";
+import { EyeIcon, SpeakerIcon, TapeIcon } from "./Icons";
 import { ViewSettings, AudioSettings } from "./SettingsPanels";
 
-export default function UI(props) {
+export default function UI() {
   const { setAudioMixerSnapshot, muted, setMuted, muteAll, restoreSnapshot } =
     useStore();
   const { experienceStarted, setExperienceStarted } = useStore();

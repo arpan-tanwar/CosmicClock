@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
@@ -56,8 +56,7 @@ const SolarSystem = () => {
     planetsRef.current[planet] = ref;
   };
 
-  const { gridSize, ...gridConfig } = useControls(
-    "Grid",
+  const { ...gridConfig } = useControls(
     {
       gridSize: [10.5, 10.5],
       gridType: { value: 2, options: { Grid: 0, Circles: 2 } },
@@ -644,7 +643,6 @@ const PlanetRings = forwardRef(
 const Views = () => {
   const { preset, setPresetIsTransitioning, solarSystemRef } = useStore();
   const { camera } = useThree();
-  const onStart = () => setPresetIsTransitioning(true);
   const onComplete = () => setPresetIsTransitioning(false);
 
   useGSAP(() => {
@@ -995,10 +993,6 @@ const Effects = () => {
   );
 };
 
-/**
- * OrbitControls
- */
-
 const WrappedOrbitControls = () => {
   const orbitControlsRef = useRef();
   const presetIsTransitioning = useStore(
@@ -1019,14 +1013,10 @@ const WrappedOrbitControls = () => {
   );
 };
 
-/**
- * Planet
- */
-
 const Planet = forwardRef(({ prefix, config, ...props }, ref) => {
   const materialRef = useRef();
 
-  useFrame(({ clock }, delta) => {
+  useFrame(({ clock }) => {
     materialRef.current.uniforms.uTime.value = clock.elapsedTime;
   });
 
@@ -1037,10 +1027,6 @@ const Planet = forwardRef(({ prefix, config, ...props }, ref) => {
     </Sphere>
   );
 });
-
-/**
- * Scene
- */
 
 const Scene = () => {
   const { gl } = useThree();
