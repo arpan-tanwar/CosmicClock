@@ -1,7 +1,5 @@
 import { create } from "zustand";
 
-const audio = document.createElement("audio");
-
 const useStore = create((set) => ({
   // The planet codes
   planetCodes: ["mer", "ven", "ear", "mar", "jup", "sat", "ura", "nep"],
@@ -22,9 +20,7 @@ const useStore = create((set) => ({
   solarSystemRef: null,
   setSolarSystemRef: (solarSystemRef) => set({ solarSystemRef }),
   // Can the browser play ogg files
-  supportsOgg: Boolean(
-    audio.canPlayType && audio.canPlayType("audio/ogg;").replace(/no/, "")
-  ),
+
   // Master volume
   volume: 0,
   setVolume: (volume) => set({ volume }),
