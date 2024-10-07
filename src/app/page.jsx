@@ -30,8 +30,8 @@ import UI from "./UI";
 import "./PlanetMaterial";
 import PlanetRingsMaterial from "./PlanetRingsMaterial";
 import { spacerockGeometry } from "./Spacerock";
-import useStore from "../stores/useStore";
-import { data } from "../stores/spacerockData";
+import useStore from "./stores/useStore";
+import { data } from "./stores/spacerockData";
 import { Loader } from "./Loader";
 import "@/app/globals.css";
 

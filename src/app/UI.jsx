@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import useStore from "../stores/useStore";
+import useStore from "./stores/useStore";
 import { EyeIcon, PlanetIcon, SpeakerIcon, TapeIcon } from "./Icons";
 import { ViewSettings, AudioSettings } from "./SettingsPanels";
 

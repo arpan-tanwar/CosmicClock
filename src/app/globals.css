@@ -1,6 +1,6 @@
-@import "./space/css/base.css";
-@import "./space/css/fonts.css";
-@import "./space/css/settings.css";
+@import "./css/base.css";
+@import "./css/fonts.css";
+@import "./css/settings.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

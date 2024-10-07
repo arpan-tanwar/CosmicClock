@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import useStore from "../stores/useStore";
+import useStore from "./stores/useStore";
 
 const Panel = (props) => {
   const ref = useRef();

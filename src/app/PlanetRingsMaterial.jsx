@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { shaderMaterial } from "@react-three/drei";
 import { extend } from "@react-three/fiber";
-import { vertexShader, fragmentShader } from "../shaders/planetRingsMaterial";
+import { vertexShader, fragmentShader } from "./shaders/planetRingsMaterial";
 
 const PlanetRingsMaterial = shaderMaterial(
   {
